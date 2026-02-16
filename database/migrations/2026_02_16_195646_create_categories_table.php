@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');          // "Book reviews", "Travel", "My CV"
             $table->string('slug')->unique(); // "book-reviews", "travel", "my-cv"
+            $table->text('description')->nullable(); // optional short text
             $table->timestamps();
         });
     }

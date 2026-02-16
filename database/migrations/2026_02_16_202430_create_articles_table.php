@@ -11,18 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-       Schema::create('articles', function (Blueprint $table) {
-    $table->id();
-    $table->string('title');
-    $table->text('body');
-    $table->string('slug')->unique();
+        Schema::create('articles', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->nullOnDelete();
+            $table->string('title');
+            $table->string('slug')->unique(); // "book-reviews", "travel", "my-cv"
+            $table->text('body');
+            $table->string('type');
+            $table->timestamp('published_at')->nullable();
+            $table->string('book_title')->nullable();
+            $table->string('book_author')->nullable();
+            $table->unsignedTinyInteger('rating')->nullable();
+            $table->json('etc')->nullable();
+            $table->timestamps();
 
-    $table->foreignId('category_id')
-        ->nullable()
-        ->constrained()
-        ->nullOnDelete();
-
-    $table->timestamps();
     });
     }
 
