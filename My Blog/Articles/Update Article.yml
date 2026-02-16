@@ -1,0 +1,27 @@
+info:
+  name: Update Article
+  type: http
+  seq: 4
+
+http:
+  method: PUT
+  url: http://localhost:8000/api/articles/1
+  body:
+    type: json
+    data: |
+      {
+        "title": "Updated Article Title",
+        "slug": "updated-article-title",
+        "category": "technology",
+        "book_title": "Updated Book Title",
+        "book_author": "Updated Author",
+        "rating": 4,
+        "body": "Updated article body content goes here."
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

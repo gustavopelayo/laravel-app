@@ -48,4 +48,12 @@ class ArticleService
     {
         return $article->delete();
     }
+
+    public function addArticleToCategory(int $articleId, int $categoryId): bool
+    {
+        $article = Article::findOrFail($articleId);
+        $article->category_id = $categoryId;
+        $article->save();
+        return true;
+    }
 }

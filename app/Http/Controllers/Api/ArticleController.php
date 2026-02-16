@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\ArticleRequest;
 use App\Models\Article;
+use App\Models\Category;
 use App\Services\ArticleService;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\Controller;
@@ -60,5 +61,13 @@ class ArticleController extends Controller
         $this->articleService->deleteArticle($id);
 
         return response()->json(['message' => 'Article deleted'], 200);
+    }
+
+    public function addArticleToCategory(int $articleId, int $categoryId): JsonResponse
+    {
+        $this->articleService->addArticleToCategory($articleId, $categoryId);
+
+
+        return response()->json(['message' => 'Article added to category'], 200);
     }
 }
