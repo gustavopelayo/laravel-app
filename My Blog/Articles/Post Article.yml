@@ -5,7 +5,19 @@ info:
 
 http:
   method: POST
-  url: http://localhost:8000/articles
+  url: http://localhost:8000/api/articles
+  body:
+    type: json
+    data: |
+      {
+        "title": "Five Decembers – an epic WWII neo‑noir",
+        "slug": "five-decembers-an-epic-wwii-neo-noir",
+        "category": "book-reviews",
+        "book_title": "Five Decembers",
+        "book_author": "James Kestrel",
+        "rating": 5,
+        "body": "Is it a neo-noir crime drama? An epic story about surviving the Second World War?\n\n\"Five Decembers\" starts like a typical detective story in Hawaii, with a cop trying to prove himself. Then, in an instant, the Japanese attack Pearl Harbor and everything spins out of control while the protagonist keeps fighting to solve a case that grows to war-sized proportions, which he slowly uncovers as he investigates.\n\nI never imagined such a banal initial premise could grow into something this epic. If there are still detective stories left to tell, it will be hard to top \"Five Decembers\"."
+      }
   auth: inherit
 
 settings:
