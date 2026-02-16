@@ -1,17 +1,13 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
-use Laravel\Fortify\Features;
 
-Route::get('/', function () {
-    return Inertia::render('welcome', [
-        'canRegister' => Features::enabled(Features::registration()),
-    ]);
-})->name('home');
-
-Route::get('dashboard', function () {
-    return Inertia::render('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Articles routes
+Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
+Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
+Route::get('articles/{id}', [ArticleController::class, 'show'])->name('articles.show');
+Route::put('articles/{id}', [ArticleController::class, 'update'])->name('articles.update');
+Route::delete('articles/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
 require __DIR__.'/settings.php';
