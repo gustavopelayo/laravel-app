@@ -1,0 +1,20 @@
+info:
+  name: Get All Attached Articles
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: http://localhost:8000/api/articles/tags/{{tag_id}}/articles
+  auth: inherit
+
+runtime:
+  variables:
+    - name: tag_id
+      value: "1"
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

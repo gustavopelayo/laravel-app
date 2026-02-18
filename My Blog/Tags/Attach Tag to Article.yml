@@ -1,0 +1,22 @@
+info:
+  name: Attach Tag to Article (mystery)
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:8000/api/articles/tags/attach
+  body:
+    type: json
+    data: |
+      {
+        "article_id": 4,
+        "tag_id": 1
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
