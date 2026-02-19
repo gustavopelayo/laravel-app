@@ -16,6 +16,8 @@ class CategorySeeder extends Seeder
             'My CV',
             'Tech notes',
             'Life updates',
+            'music',
+            'film-tv'
         ];
 
         foreach ($categories as $name) {

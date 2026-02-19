@@ -17,6 +17,8 @@ class ArticleSeeder extends Seeder
         $cv          = Category::where('slug', 'my-cv')->first();
         $tech        = Category::where('slug', 'tech-notes')->first();
         $life        = Category::where('slug', 'life-updates')->first();
+        $filmTv      = Category::where('slug', 'film-tv')->first();
+        $music       = Category::where('slug', 'music')->first();
 
         $articles = [
             [
@@ -85,6 +87,17 @@ class ArticleSeeder extends Seeder
                 'title'       => 'Why I started this blog',
                 'body'        => "I wanted a place that feels mine, not an algorithmic feed. Writing short notes about books, trips, and work is a way to think in public and see my own trajectory over time.",
             ],
+            [
+                'category'    => $filmTv, // Category::where('slug', 'film-tv')->first();
+                'title'       => 'Why noir works so well on screen and on paper',
+                'body'        => "Noir on screen gives you lighting and framing, noir on paper gives you interior monologue.\n\nThe best stories use both atmosphere and voice to keep you slightly off balance.",
+            ],
+            [
+                'category'    => $music, // Category::where('slug', 'music')->first();
+                'title'       => 'Albums that feel like books',
+                'body'        => "Some albums feel like short story collections: each track stands alone but they build into a single mood.\n\nI like listening to them the same way I read—front to back, no shuffle.",
+            ],
+
         ];
 
         foreach ($articles as $data) {

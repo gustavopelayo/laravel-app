@@ -11,10 +11,10 @@ class ArticleTag extends Model
 
      public function article()
     {
-        return $this->belongsToMany(Article::class);
+        return $this->belongsTo(Article::class);
     }
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsTo(Tag::class);
     }
 }
